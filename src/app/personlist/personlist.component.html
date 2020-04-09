@@ -1,0 +1,11 @@
+
+	<div class="form-group ">
+		<input type='text' class="form-control" placeholder='Search By Name/Mobile' [(ngModel)]='searchTerm'/>
+	</div>
+		<div class="mt-0 pt-0" *ngFor='let person of personsList | personFilter:searchTerm; let i = index'
+			(click)="showDetails(person.id)"
+			[ngStyle]="{'background-color':person.id === selectedPersonDetails?.id ? 'yellow' : '' }">
+			<h5> {{person.name}} </h5>
+			<span> {{person.mobile}} </span>
+			<hr>
+	</div>

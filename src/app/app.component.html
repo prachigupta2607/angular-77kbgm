@@ -1,0 +1,13 @@
+
+<div class="container">
+<div class= "row mb-2 headerColor">
+	<h3>Contact Information</h3>
+</div>
+	<div class="row">
+		<div class="col-lg-5 col-md-5 col-sm-5 content">
+			<app-personlist (updateSelectedPerson)='updatePerson($event)'></app-personlist>
+		</div>
+		<div class="col-lg-7 col-md-7 col-sm-7">
+			<app-person [selectedPersonDetails]='selectedPersonDetails'></app-person>
+		</div>
+	</div>

@@ -1,0 +1,36 @@
+<div class="ml-1" *ngIf='personDetails'>
+	<h3>Contact Details</h3>
+	<div class="details pl-3 pt-2" *ngIf="showDetails; else editForm">
+		<h5>{{personDetails.name}} - {{personDetails.age}}yrs</h5>
+		<h5>{{personDetails.mobile}}</h5>
+		<h6>{{personDetails.address}}</h6>
+	</div>
+	<ng-template #editForm>
+		<form [formGroup]="personDetailsForm" class="form-group">
+			<div class="input-group mb-2">
+				<input type="text" formControlName="firstName" class="form-control" placeholder="First Name"/>
+				<input type="text" formControlName="lastName" class="form-control ml-2" placeholder="Last Name"/>
+        <input type="number" formControlName="age" class="form-control form-input w-5 ml-5" placeholder="Age"/>
+
+      </div>
+				<div class="input-group mb-2">
+					<input type="text" formControlName="mobile" class="form-control" placeholder="Mobile"/>
+      </div>
+					<div formGroupName="address">
+						<h5>Address</h5>
+						<input type="text" formControlName="street" class="form-control mb-2" placeholder="Street"/>
+            <div class="input-group mb-2">
+              <input type="text" formControlName="city" class="form-control" placeholder="City"/>
+              <input type="text" formControlName="state" class="form-control ml-2" placeholder="State"/>
+              <input type="text" formControlName="zip" class="form-control ml-2" placeholder="Zip"/>
+            </div>
+    </div>
+		</form>
+	</ng-template>
+	<div class="row mt-5">
+		<button *ngIf='showDetails' (click)="editPersonDetail()" class="btn btn-primary"> Edit
+  </button>
+		<button *ngIf='!showDetails' (click)='handleDone()' class="btn btn-primary ml-2"> Done
+  </button>
+	</div>
+</div>
